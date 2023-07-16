@@ -1,0 +1,26 @@
+.box {
+    height: 4rem;
+    width: 4rem;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 3rem;
+}
+
+.empty {
+    border: 2px solid gray;
+}
+
+.hit {
+    background-color: green;
+}
+
+.contains {
+    background-color: orange;
+}
+
+.miss {
+    background-color: gray;
+}
+

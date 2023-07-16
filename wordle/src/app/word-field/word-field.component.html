@@ -1,0 +1,7 @@
+<div class="field-wrapper">
+    <div class="field">
+        <ng-container *ngFor="let element of amountOfLetterBoxes; index as i">
+            <app-letter-box [index]="i" [letter]="letters.charAt(i)"></app-letter-box>
+        </ng-container>
+    </div>
+</div>
