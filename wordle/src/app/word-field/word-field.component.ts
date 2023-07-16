@@ -37,13 +37,17 @@ export class WordFieldComponent {
   public updateLetterBoxMode(id: number) {
     let mode = this.calculateLetterBoxMode(id);
     let box = document.getElementById("letter-box_"+id);
-    box?.classList.remove("empty", "contains", "miss", "hit");
-    box?.classList.add(mode ?? "empty");
+    setTimeout(() => {
+      box?.classList.remove("empty", "contains", "miss", "hit");
+      box?.classList.add(mode);
+    }, (id-(this.currentRow-1)*5) * 250 + 250);
+    box!.style.animationDelay = `${(id-(this.currentRow-1)*5) * 250}ms`;
+    box?.classList.add("animated");
   }
 
-  public calculateLetterBoxMode(id: number) : "hit" | "miss" | "contains" | null {
+  public calculateLetterBoxMode(id: number) : "hit" | "miss" | "contains" | "empty" {
     if(id > this.letters.length) {
-      return null;
+      return "empty";
     }
     if(this.WORD.charAt(id%this.MAX_LETTERS_IN_ROW) == this.letters.at(id)){
       return "hit";
